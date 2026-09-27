@@ -1,0 +1,20 @@
+{
+  "name": "pookie-ai",
+  "version": "1.0.0",
+  "description": "Pookie AI 🎀 - Your tiny digital bestie ♡ featuring chat, games, vibe checks, study mode, themes, and notes",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "pookie",
+    "ai-assistant",
+    "digital-bestie",
+    "study-pomodoro",
+    "mini-games",
+    "aesthetic-ui"
+  ],
+  "author": "Pookie Team",
+  "license": "MIT"
+}

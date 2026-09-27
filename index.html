@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="strawberry">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Pookie AI 🎀 - Your Tiny Digital Bestie ♡</title>
+    
+    <!-- WhatsApp & Social Card Meta Tags -->
+    <meta property="og:title" content="Pookie AI 🎀 - Your Tiny Digital Bestie ♡">
+    <meta property="og:description" content="Chat with Pookie, play cute arcade games, check your daily vibe, and study together! ✨">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#ffb5d1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Pookie AI 🎀">
+    
+    <!-- PWA Web App Manifest & App Icons -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Floating Background Particles -->
+    <div class="particles-container" id="particlesContainer"></div>
+
+    <!-- Main Application Shell -->
+    <div class="app">
+
+        <!-- ====================================================================
+             SIDEBAR NAVIGATION
+             ==================================================================== -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <div class="logo-icon" id="sidebarLogoIcon">🎀</div>
+                <h2>Pookie</h2>
+                <p>Your tiny digital bestie ♡</p>
+            </div>
+
+            <div class="menu-title">Menu</div>
+
+            <div class="menu">
+                <button class="active" data-view="view-chat">
+                    <span class="menu-icon">💬</span>
+                    <span>Chat & Home</span>
+                </button>
+                <button data-view="view-games">
+                    <span class="menu-icon">🎮</span>
+                    <span>Games</span>
+                    <span class="badge">3</span>
+                </button>
+                <button data-view="view-vibe">
+                    <span class="menu-icon">🎀</span>
+                    <span>Vibe Check</span>
+                </button>
+                <button data-view="view-challenges">
+                    <span class="menu-icon">⭐</span>
+                    <span>Challenges</span>
+                    <span class="badge">XP</span>
+                </button>
+            </div>
+
+            <div class="menu-title">Explore</div>
+
+            <div class="menu">
+                <button data-view="view-study">
+                    <span class="menu-icon">📚</span>
+                    <span>Study Mode</span>
+                </button>
+                <button data-view="view-themes">
+                    <span class="menu-icon">🎨</span>
+                    <span>Themes & Mascot</span>
+                </button>
+                <button data-view="view-notes">
+                    <span class="menu-icon">💌</span>
+                    <span>Pookie Notes</span>
+                </button>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="streak-card">
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <span class="streak-flame">🔥</span>
+                        <span>Bestie Streak</span>
+                    </div>
+                    <span id="streakCount" style="color:var(--primary-dark);">3 Days</span>
+                </div>
+                <a href="pookie-ai.zip" download="pookie-ai.zip" class="btn-timer-secondary" style="display:flex; align-items:center; justify-content:center; gap:6px; margin-top:10px; padding:8px; border-radius:14px; font-size:11.5px; font-weight:700; text-decoration:none; color:var(--primary-dark); text-align:center;">
+                    📥 <span>Download App (.zip)</span>
+                </a>
+            </div>
+
+        </aside>
+
+        <!-- ====================================================================
+             MAIN CONTENT AREA
+             ==================================================================== -->
+        <main class="main">
+
+            <!-- HEADER -->
+            <header class="header">
+                <div class="header-left">
+                    <button class="mobile-nav-toggle" id="mobileNavToggle" title="Open Menu">☰</button>
+                    <div class="header-status-box">
+                        <h3>Hii! 🎀</h3>
+                        <div class="online">
+                            <span></span>
+                            Pookie is online
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header-right" id="headerRightBadges">
+                    <button class="header-btn header-btn-pill" id="openQrModalBtn" title="Scan QR Code to open on phone">
+                        📱 <span>Phone QR</span>
+                    </button>
+                    <a href="https://api.whatsapp.com/send?text=Chat%20with%20Pookie%20AI%20%F0%9F%8E%80%20-%20Your%20tiny%20digital%20bestie%20%E2%99%A1%3A%20https%3A%2F%2Fbeing-desired-davis-worth.trycloudflare.com" target="_blank" class="header-btn header-btn-pill whatsapp-pill" id="headerWhatsappLink" title="Send to WhatsApp">
+                        💬 <span>WhatsApp</span>
+                    </a>
+                    <button class="header-btn header-btn-pill" id="openVoiceModalBtn" title="Voice Studio & Personalities">
+                        🎙️ <span>Voice</span>
+                    </button>
+                    <button class="header-btn header-btn-pill" id="installAppBtn" title="Install Pookie App on Phone or PC">
+                        📲 <span>Install</span>
+                    </button>
+                    <button class="header-btn" id="soundToggleBtn" title="Toggle Sound">🔊</button>
+                    <button class="header-btn" id="openSettingsBtn" title="Settings & AI Config">⚙️</button>
+                    <div class="xp-badge" id="headerXP" title="Total XP Earned">
+                        ⭐ 780 XP
+                    </div>
+                    <div class="avatar-small" id="headerAvatar" title="Your Mascot Avatar">
+                        🐰
+                    </div>
+                </div>
+            </header>
+
+            <!-- VIEW CONTAINER -->
+            <div class="view-container">
+
+                <!-- ============================================================
+                     VIEW 1: CHAT & HOME
+                     ============================================================ -->
+                <section class="view-panel active" id="view-chat">
+
+                    <!-- Character Selector Carousel Bar -->
+                    <div class="character-bar" id="characterBar">
+                        <div class="character-bar-header">
+                            <span class="character-bar-title">✨ Select AI Character:</span>
+                            <div style="display:flex; align-items:center; gap:8px;">
+                                <button class="clear-chat-btn" id="clearChatBtn" title="Clear Conversation History">🗑️ Clear Chat</button>
+                            </div>
+                        </div>
+                        <div class="character-chips" id="characterChips">
+                            <!-- Populated dynamically via /api/characters -->
+                        </div>
+                    </div>
+
+                    <!-- Active Character & Voice Info Banner -->
+                    <div class="active-character-info" id="activeCharacterInfo">
+                        <div class="active-character-left">
+                            <span class="active-char-avatar" id="activeCharAvatar">🐰</span>
+                            <div>
+                                <div style="display:flex; align-items:center; gap:8px;">
+                                    <div class="active-char-name" id="activeCharName">Pookie Bestie</div>
+                                    <span class="ai-provider-badge" id="aiProviderBadge" title="Click to configure AI Brain">🌟 Gemini 1.5</span>
+                                </div>
+                                <div class="active-char-voice" id="activeCharVoice">🎙️ Voice: Rachel (Original Voice)</div>
+                            </div>
+                        </div>
+                        <div class="active-character-right">
+                            <button class="btn-voice-preview" id="startCallBtn" title="Start AI Voice Call" style="background:#2ecc71; border-color:#27ae60; color:white; font-weight:700;">📞 Call</button>
+                            <button class="btn-voice-preview" id="previewActiveVoiceBtn" title="Listen to Voice Preview">▶️ Test Voice</button>
+                            <button class="btn-voice-preview" id="switchVoiceModalBtn" title="Open Voice Studio">⚙️ Voice Studio</button>
+                        </div>
+                    </div>
+
+                    <div class="chat" id="chat">
+
+                        <div class="welcome">
+                            <div class="mascot" id="mascot" title="Click to pet Pookie! ♡">
+                                🐰
+                            </div>
+                            <div class="mascot-pet-hint">♡ Click to pet Pookie (+5 XP) ♡</div>
+                            <h1 id="welcomeTitle">What are we doing today?</h1>
+                            <p id="welcomeSubtitle">Tell me anything. I'm listening... ♡</p>
+                        </div>
+
+                        <!-- INITIAL BOT GREETING -->
+                        <div class="message bot">
+                            <div class="message-content">
+                                <div class="sender-bar">
+                                    <span id="initialGreetingSender">🎀 Pookie</span>
+                                </div>
+                                <div class="message-bubble" id="initialGreetingText">
+                                    Hiiii! 🥺💕 I'm so happy you're here! What's on your mind today, bestie? We can chat, play games, study, or check your daily vibe! ✨
+                                </div>
+                                <div class="message-actions">
+                                    <button class="msg-btn speak-btn" title="Read Aloud in Character Voice">🔊</button>
+                                    <button class="msg-btn copy-btn" title="Copy Text">📋</button>
+                                    <button class="msg-btn share-btn" title="Share Message via Phone">↗️</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Live Speaking Indicator -->
+                    <div id="speakingIndicator" class="speaking-indicator-bar" style="display:none;">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <span class="speaking-wave">🔊</span>
+                            <span id="speakingText">AI is speaking to you... ♡</span>
+                        </div>
+                        <button id="stopSpeakingBtn" class="btn-timer-secondary" style="padding:2px 10px; font-size:11px; border-radius:12px;">⏹️ Stop</button>
+                    </div>
+
+                    <!-- QUICK ACTIONS BAR -->
+                    <div class="quick-actions-bar" id="quickActionsBar">
+                        <button class="quick-btn" onclick="quickMessage('Cheer me up!')">
+                            ✨ Cheer me up
+                        </button>
+                        <button class="quick-btn" onclick="quickMessage('Help me study')">
+                            📚 Help me study
+                        </button>
+                        <button class="quick-btn" onclick="quickMessage('Make me laugh')">
+                            😂 Make me laugh
+                        </button>
+                        <button class="quick-btn" onclick="quickMessage('Give me a cute idea')">
+                            💡 Give me an idea
+                        </button>
+                        <button class="quick-btn" onclick="quickMessage('I am feeling anxious...')">
+                            🫁 Help me breathe
+                        </button>
+                    </div>
+
+                    <!-- INPUT AREA -->
+                    <div class="input-area">
+                        <!-- Emoji Picker Drawer Popup -->
+                        <div class="emoji-drawer" id="emojiDrawer">
+                            <div style="font-size:11px; font-weight:700; color:var(--text-muted); margin-bottom:8px; text-transform:uppercase;">
+                                Cute Emojis & Bows 🎀
+                            </div>
+                            <div class="emoji-grid" id="emojiGrid"></div>
+                        </div>
+
+                        <div class="input-box">
+                            <button class="icon-btn" id="emojiBtn" title="Add Cute Emoji" aria-label="Emoji Picker">
+                                😊
+                            </button>
+                            <textarea
+                                id="messageInput"
+                                placeholder="Talk to your AI companion... (Enter to send, Shift+Enter for new line)"
+                                rows="1"
+                                aria-label="Chat input"
+                            ></textarea>
+                            <button class="icon-btn" id="micBtn" title="Speech to Text (Speak to AI)" aria-label="Microphone">
+                                🎤
+                            </button>
+                            <button class="stop-btn" id="stopGenBtn" title="Stop Generation" aria-label="Stop Generation" style="display:none;">
+                                ⏹️
+                            </button>
+                            <button class="send-btn" id="sendBtn" title="Send Message" aria-label="Send Message">
+                                ➤
+                            </button>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- ============================================================
+                     VIEW 2: GAMES
+                     ============================================================ -->
+                <section class="view-panel" id="view-games">
+                    <div class="games-container">
+
+                        <div class="games-header">
+                            <div>
+                                <h2 style="color:var(--primary-dark); font-size:22px;">🎮 Pookie's Arcade</h2>
+                                <p style="font-size:13px; color:var(--text-muted);">Play sweet mini-games and earn lots of XP!</p>
+                            </div>
+                            <div class="game-tab-buttons">
+                                <button class="game-tab-btn active" data-game="game-match">🃏 Card Match</button>
+                                <button class="game-tab-btn" data-game="game-arcade">✨ Catch Sparkles</button>
+                                <button class="game-tab-btn" data-game="game-fortune">🎀 Magic Bow</button>
+                            </div>
+                        </div>
+
+                        <!-- Game 1: Pookie Match -->
+                        <div class="game-screen active" id="game-match">
+                            <h3 style="color:var(--primary-dark); margin-bottom:6px;">Pookie Card Match 🃏</h3>
+                            <p style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px;">Flip the cards and find all 8 cute pairs!</p>
+                            <div class="match-stats">
+                                <span id="matchMoves">Moves: 0</span>
+                                <span id="matchTimer">Time: 00:00</span>
+                            </div>
+                            <div class="match-grid" id="matchGrid"></div>
+                            <button class="btn-timer" id="matchRestartBtn" style="margin-top:20px; font-size:13px; padding:10px 22px;">
+                                Shuffle & Restart 🔄
+                            </button>
+                        </div>
+
+                        <!-- Game 2: Catch The Sparkles -->
+                        <div class="game-screen" id="game-arcade">
+                            <h3 style="color:var(--primary-dark); margin-bottom:4px;">Catch The Sparkles! ✨</h3>
+                            <p style="font-size:12.5px; color:var(--text-muted); margin-bottom:12px;">Move Pookie's basket with mouse, touch or arrow keys!</p>
+                            <div class="arcade-header">
+                                <span id="arcadeScore">Score: 0</span>
+                                <span id="arcadeLives">❤️❤️❤️</span>
+                                <span id="arcadeHighScore">Best: 0</span>
+                            </div>
+                            <canvas id="arcadeCanvas" width="480" height="340"></canvas>
+                            <div class="arcade-controls">
+                                <button class="btn-timer" id="arcadeStartBtn" style="font-size:13px; padding:10px 24px;">
+                                    Start Game 🎮
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Game 3: Magic Fortune Bow -->
+                        <div class="game-screen" id="game-fortune">
+                            <h3 style="color:var(--primary-dark); margin-bottom:6px;">Mystical Fortune Bow 🔮</h3>
+                            <p style="font-size:12.5px; color:var(--text-muted); margin-bottom:16px;">Tap the ribbon to shake and reveal your fortune!</p>
+                            <div class="fortune-bow-box">
+                                <div class="fortune-bow" id="fortuneBow" title="Click to shake!">🎀</div>
+                                <div class="fortune-result-card" id="fortuneResult"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- ============================================================
+                     VIEW 3: VIBE CHECK
+                     ============================================================ -->
+                <section class="view-panel" id="view-vibe">
+                    <div class="vibe-container">
+                        <div>
+                            <h2 style="color:var(--primary-dark); font-size:22px;">🎀 Daily Vibe Check</h2>
+                            <p style="font-size:13px; color:var(--text-muted);">Take 60 seconds to check in with your heart and energy ♡</p>
+                        </div>
+
+                        <div class="vibe-question-card">
+                            <h3>1. What is your energy level right now? ⚡</h3>
+                            <p>Slide to match how awake & active you feel:</p>
+                            <div class="vibe-slider-wrapper">
+                                <input type="range" min="1" max="5" value="3" class="vibe-slider" id="vibeEnergySlider">
+                                <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:600; color:var(--text-muted);">
+                                    <span>😴 Zombie (1)</span>
+                                    <span>☕ Cozy (3)</span>
+                                    <span>🚀 Unstoppable (5)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vibe-question-card">
+                            <h3>2. Pick the mood that best captures you: ☁️</h3>
+                            <div class="vibe-cloud-grid" id="vibeMoodChips">
+                                <div class="vibe-chip selected">🌸 Peaceful</div>
+                                <div class="vibe-chip">✨ Inspired</div>
+                                <div class="vibe-chip">🥺 Sensitive</div>
+                                <div class="vibe-chip">🥰 Loving</div>
+                                <div class="vibe-chip">🥱 Exhausted</div>
+                                <div class="vibe-chip">🧠 Overthinking</div>
+                                <div class="vibe-chip">💅 Slaying</div>
+                                <div class="vibe-chip">🌧️ Down</div>
+                            </div>
+                        </div>
+
+                        <div class="vibe-question-card">
+                            <h3>3. What do you need most today? 💖</h3>
+                            <div class="vibe-cloud-grid" id="vibeGoalChips">
+                                <div class="vibe-chip selected">💖 Self-Care</div>
+                                <div class="vibe-chip">📚 Pure Focus</div>
+                                <div class="vibe-chip">🫖 Cozy Rest</div>
+                                <div class="vibe-chip">🌟 New Adventure</div>
+                                <div class="vibe-chip">💬 Deep Vent</div>
+                            </div>
+                        </div>
+
+                        <button class="btn-timer" id="vibeSubmitBtn" style="width:100%; font-size:15px; padding:14px;">
+                            Reveal My Vibe Prescription 🎀 (+30 XP)
+                        </button>
+
+                        <div class="vibe-result-card" id="vibeResultCard"></div>
+                    </div>
+                </section>
+
+                <!-- ============================================================
+                     VIEW 4: CHALLENGES & BADGES
+                     ============================================================ -->
+                <section class="view-panel" id="view-challenges">
+                    <div class="challenges-container">
+                        <div>
+                            <h2 style="color:var(--primary-dark); font-size:22px;">⭐ Quests & Achievements</h2>
+                            <p style="font-size:13px; color:var(--text-muted);">Complete daily challenges to earn XP, level up, and unlock bestie badges!</p>
+                        </div>
+
+                        <h3 style="color:var(--text-main); font-size:16px;">Daily Quests 🌸</h3>
+                        <div class="challenge-list" id="challengesList"></div>
+
+                        <h3 style="color:var(--text-main); font-size:16px; margin-top:14px;">Unlocked Badges 🏆</h3>
+                        <div class="badges-grid" id="badgesGrid"></div>
+                    </div>
+                </section>
+
+                <!-- ============================================================
+                     VIEW 5: STUDY MODE
+                     ============================================================ -->
+                <section class="view-panel" id="view-study">
+                    <div class="study-container">
+                        <div>
+                            <h2 style="color:var(--primary-dark); font-size:22px;">📚 Study Sanctuary</h2>
+                            <p style="font-size:13px; color:var(--text-muted);">Pomodoro focus timer, procedural lo-fi ambient audio, task list & flashcards!</p>
+                        </div>
+
+                        <!-- Pomodoro Timer -->
+                        <div class="timer-section">
+                            <div class="timer-modes">
+                                <button class="timer-mode-btn active" data-mode="focus">25m Focus 🎯</button>
+                                <button class="timer-mode-btn" data-mode="short">5m Break ☕</button>
+                                <button class="timer-mode-btn" data-mode="long">15m Long Break 🌿</button>
+                            </div>
+
+                            <div class="timer-display-ring">
+                                <svg class="timer-svg" viewBox="0 0 220 220">
+                                    <circle class="timer-bg-circle" cx="110" cy="110" r="100"></circle>
+                                    <circle class="timer-progress-circle" id="timerProgressCircle" cx="110" cy="110" r="100"></circle>
+                                </svg>
+                                <div class="timer-time-text" id="timerTimeText">25:00</div>
+                            </div>
+
+                            <div class="timer-controls">
+                                <button class="btn-timer" id="timerPlayBtn">Start Focus ▶️</button>
+                                <button class="btn-timer-secondary" id="timerResetBtn">Reset 🔄</button>
+                            </div>
+                        </div>
+
+                        <!-- Procedural Web Audio Ambient Sounds -->
+                        <div class="ambient-box">
+                            <h3 style="color:var(--primary-dark); font-size:16px;">🎧 Cozy Ambient Audio</h3>
+                            <p style="font-size:12px; color:var(--text-muted);">Procedurally generated calming sounds synthesized directly in your browser:</p>
+                            <div class="ambient-sounds-grid">
+                                <div class="ambient-card" data-sound="rain">
+                                    <div class="ambient-card-header">
+                                        <span>🌧️ Soft Rain</span>
+                                        <button class="ambient-toggle-btn btn-timer-secondary" style="padding:4px 10px; font-size:11px;">Play ▶️</button>
+                                    </div>
+                                    <input type="range" class="ambient-slider" min="0" max="1" step="0.05" value="0.4">
+                                </div>
+                                <div class="ambient-card" data-sound="cafe">
+                                    <div class="ambient-card-header">
+                                        <span>☕ Cozy Cafe</span>
+                                        <button class="ambient-toggle-btn btn-timer-secondary" style="padding:4px 10px; font-size:11px;">Play ▶️</button>
+                                    </div>
+                                    <input type="range" class="ambient-slider" min="0" max="1" step="0.05" value="0.3">
+                                </div>
+                                <div class="ambient-card" data-sound="purr">
+                                    <div class="ambient-card-header">
+                                        <span>🐱 Cat Purr</span>
+                                        <button class="ambient-toggle-btn btn-timer-secondary" style="padding:4px 10px; font-size:11px;">Play ▶️</button>
+                                    </div>
+                                    <input type="range" class="ambient-slider" min="0" max="1" step="0.05" value="0.5">
+                                </div>
+                                <div class="ambient-card" data-sound="chimes">
+                                    <div class="ambient-card-header">
+                                        <span>🎐 Zen Chimes</span>
+                                        <button class="ambient-toggle-btn btn-timer-secondary" style="padding:4px 10px; font-size:11px;">Play ▶️</button>
+                                    </div>
+                                    <input type="range" class="ambient-slider" min="0" max="1" step="0.05" value="0.4">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Study Tools: Tasks & Flashcards -->
+                        <div class="study-tools-grid">
+                            <!-- Tasks -->
+                            <div class="study-tool-card">
+                                <h3 style="color:var(--primary-dark); font-size:15px; margin-bottom:8px;">📝 Study Tasks</h3>
+                                <div style="display:flex; gap:8px; margin-bottom:12px;">
+                                    <input type="text" id="taskInput" class="setting-input" style="margin-top:0;" placeholder="Add new task...">
+                                    <button class="btn-timer" id="addTaskBtn" style="padding:8px 14px; font-size:13px;">Add</button>
+                                </div>
+                                <div id="studyTasksList"></div>
+                            </div>
+
+                            <!-- Flashcards -->
+                            <div class="study-tool-card">
+                                <h3 style="color:var(--primary-dark); font-size:15px; margin-bottom:8px;">💡 Active Recall Flashcards</h3>
+                                <p style="font-size:11.5px; color:var(--text-muted); margin-bottom:12px;">Click card to flip between Question and Answer:</p>
+                                <div class="card-item" id="studyFlashcard" style="width:100%; height:130px; margin-bottom:12px;">
+                                    <div class="card-back" id="flashcardQ" style="padding:15px; text-align:center; font-size:14px; font-weight:600;">Question?</div>
+                                    <div class="card-front" id="flashcardA" style="padding:15px; text-align:center; font-size:13px; font-weight:500;">Answer!</div>
+                                </div>
+                                <div style="display:flex; gap:10px;">
+                                    <button class="btn-timer" id="flashcardNextBtn" style="flex:1; font-size:12px; padding:8px;">Next Card ➡️</button>
+                                    <button class="btn-timer-secondary" id="flashcardMasterBtn" style="font-size:12px; padding:8px;">Mastered! ✨ (+5 XP)</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- ============================================================
+                     VIEW 6: THEMES & MASCOT
+                     ============================================================ -->
+                <section class="view-panel" id="view-themes">
+                    <div class="themes-container">
+                        <div>
+                            <h2 style="color:var(--primary-dark); font-size:22px;">🎨 Aesthetic Themes & Mascot</h2>
+                            <p style="font-size:13px; color:var(--text-muted);">Personalize Pookie's color palette, mascot animal, and background magic!</p>
+                        </div>
+
+                        <h3 style="color:var(--text-main); font-size:16px;">Color Themes</h3>
+                        <div class="theme-card-grid">
+                            <div class="theme-selector-card active" data-theme-name="strawberry">
+                                <div style="font-weight:700; font-size:14px;">🍓 Strawberry Milk</div>
+                                <div class="theme-palette-preview">
+                                    <div class="theme-color-chip" style="background:#fff5fa;"></div>
+                                    <div class="theme-color-chip" style="background:#ee82ad;"></div>
+                                    <div class="theme-color-chip" style="background:#ffb5d1;"></div>
+                                </div>
+                            </div>
+                            <div class="theme-selector-card" data-theme-name="matcha">
+                                <div style="font-weight:700; font-size:14px;">🍵 Matcha Boba</div>
+                                <div class="theme-palette-preview">
+                                    <div class="theme-color-chip" style="background:#f4faf4;"></div>
+                                    <div class="theme-color-chip" style="background:#77b28c;"></div>
+                                    <div class="theme-color-chip" style="background:#97cca9;"></div>
+                                </div>
+                            </div>
+                            <div class="theme-selector-card" data-theme-name="lavender">
+                                <div style="font-weight:700; font-size:14px;">💜 Lavender Dream</div>
+                                <div class="theme-palette-preview">
+                                    <div class="theme-color-chip" style="background:#f8f6ff;"></div>
+                                    <div class="theme-color-chip" style="background:#a88bf0;"></div>
+                                    <div class="theme-color-chip" style="background:#bea8f5;"></div>
+                                </div>
+                            </div>
+                            <div class="theme-selector-card" data-theme-name="honey">
+                                <div style="font-weight:700; font-size:14px;">🍯 Honey Butter</div>
+                                <div class="theme-palette-preview">
+                                    <div class="theme-color-chip" style="background:#fffdf5;"></div>
+                                    <div class="theme-color-chip" style="background:#f2aa4c;"></div>
+                                    <div class="theme-color-chip" style="background:#f7be6b;"></div>
+                                </div>
+                            </div>
+                            <div class="theme-selector-card" data-theme-name="cloud">
+                                <div style="font-weight:700; font-size:14px;">☁️ Cloud Nine</div>
+                                <div class="theme-palette-preview">
+                                    <div class="theme-color-chip" style="background:#f3f8fe;"></div>
+                                    <div class="theme-color-chip" style="background:#6aa8e8;"></div>
+                                    <div class="theme-color-chip" style="background:#8bc0f3;"></div>
+                                </div>
+                            </div>
+                            <div class="theme-selector-card" data-theme-name="midnight">
+                                <div style="font-weight:700; font-size:14px;">🌙 Midnight Velvet</div>
+                                <div class="theme-palette-preview">
+                                    <div class="theme-color-chip" style="background:#1a1622;"></div>
+                                    <div class="theme-color-chip" style="background:#f07aa7;"></div>
+                                    <div class="theme-color-chip" style="background:#8f3b60;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 style="color:var(--text-main); font-size:16px; margin-top:10px;">Choose Your Digital Mascot</h3>
+                        <div class="mascot-picker-grid">
+                            <button class="mascot-select-btn active" data-mascot="🐰" title="Bunny">🐰</button>
+                            <button class="mascot-select-btn" data-mascot="🐱" title="Kitty">🐱</button>
+                            <button class="mascot-select-btn" data-mascot="🐻" title="Teddy Bear">🐻</button>
+                            <button class="mascot-select-btn" data-mascot="🐶" title="Puppy">🐶</button>
+                            <button class="mascot-select-btn" data-mascot="🐹" title="Hamster">🐹</button>
+                            <button class="mascot-select-btn" data-mascot="🐼" title="Panda">🐼</button>
+                        </div>
+
+                        <div style="background:var(--card-bg); border:1px solid var(--border-main); border-radius:18px; padding:18px; margin-top:14px;">
+                            <h4 style="color:var(--primary-dark); font-size:14px; margin-bottom:6px;">Floating Magic Particles</h4>
+                            <select id="particleSelect" class="setting-input">
+                                <option value="hearts">♡ Floating Hearts</option>
+                                <option value="sparkles">✨ Gentle Sparkles</option>
+                                <option value="petals">🌸 Cherry Blossoms</option>
+                                <option value="stars">⭐ Falling Stars</option>
+                                <option value="none">None (Clean)</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ============================================================
+                     VIEW 7: POOKIE NOTES / DIARY
+                     ============================================================ -->
+                <section class="view-panel" id="view-notes">
+                    <div class="notes-container">
+                        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                            <div>
+                                <h2 style="color:var(--primary-dark); font-size:22px;">💌 Secret Diary & Pookie Notes</h2>
+                                <p style="font-size:13px; color:var(--text-muted);">Write your thoughts, daily gratitude, and get sweet AI reflections!</p>
+                            </div>
+                            <button class="btn-timer-secondary" id="exportNotesBtn" style="font-size:12px; padding:8px 14px;">
+                                Export Notes 📥
+                            </button>
+                        </div>
+
+                        <!-- New Note Box -->
+                        <div class="new-note-card">
+                            <input type="text" id="noteTitleInput" class="note-input-title" placeholder="Give your entry a title... ♡">
+                            <textarea id="noteBodyInput" class="note-input-body" placeholder="Dear Diary / Bestie, today I felt..."></textarea>
+                            <div class="note-tools-bar">
+                                <div style="display:flex; gap:10px; align-items:center;">
+                                    <select id="noteMoodSelect" class="setting-input" style="width:auto; margin-top:0; padding:6px 12px; font-size:12px;">
+                                        <option value="🥰 Happy">🥰 Happy</option>
+                                        <option value="🌸 Peaceful">🌸 Peaceful</option>
+                                        <option value="🥺 Sensitive">🥺 Sensitive</option>
+                                        <option value="⚡ Motivated">⚡ Motivated</option>
+                                        <option value="🌧️ Gloomy">🌧️ Gloomy</option>
+                                    </select>
+                                    <select id="noteStickerSelect" class="setting-input" style="width:auto; margin-top:0; padding:6px 12px; font-size:12px;">
+                                        <option value="🎀">🎀 Bow</option>
+                                        <option value="🍓">🍓 Berry</option>
+                                        <option value="🌸">🌸 Blossom</option>
+                                        <option value="☕">☕ Coffee</option>
+                                        <option value="⭐">⭐ Star</option>
+                                        <option value="💌">💌 Letter</option>
+                                    </select>
+                                </div>
+                                <button class="btn-timer" id="saveNoteBtn" style="font-size:13px; padding:8px 18px;">
+                                    Save Entry & Get Pookie's Note 🎀
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Notes Search Bar -->
+                        <input type="text" id="notesSearchInput" class="setting-input" placeholder="🔍 Search through past memories & reflections...">
+
+                        <!-- Notes List Grid -->
+                        <div class="notes-list-grid" id="notesListGrid"></div>
+                    </div>
+                </section>
+
+            </div>
+
+        </main>
+
+        <!-- ====================================================================
+             RIGHT PANEL: MOOD, LEVEL & DAILY CHALLENGE
+             ==================================================================== -->
+        <aside class="right-panel">
+
+            <!-- MOOD CARD -->
+            <div class="panel-card">
+                <h4>🌸 Pookie's Mood</h4>
+                <div class="mood-face" id="moodFace" title="Click to cheer Pookie!">
+                    🥰
+                </div>
+                <div class="mood-name" id="moodName">
+                    Super Happy
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" id="moodBar" style="width:85%;"></div>
+                </div>
+                <div class="progress-text" id="moodText">
+                    85% happy
+                </div>
+            </div>
+
+            <!-- DAILY CHALLENGE -->
+            <div class="panel-card">
+                <h4>✨ Daily Challenge</h4>
+                <div class="challenge">
+                    <span id="dailyChallengeDesc">
+                        Describe your day using only <b>3 emojis!</b>
+                    </span>
+                    <button id="dailyChallengeBtn">
+                        Complete ⭐
+                    </button>
+                </div>
+            </div>
+
+            <!-- LEVEL CARD -->
+            <div class="panel-card">
+                <h4>⭐ Pookie Level</h4>
+                <p style="font-size:12.5px; font-weight:700; color:var(--text-main);" id="levelText">
+                    Level 07 🎀
+                </p>
+                <div class="progress" style="margin-top:10px;">
+                    <div class="progress-bar" id="levelBar" style="width:80%;"></div>
+                </div>
+                <p style="font-size:9.5px; color:var(--text-muted); margin-top:6px;" id="levelSub">
+                    80 / 100 XP
+                </p>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- ========================================================================
+         VOICE STUDIO & PERSONALITIES MODAL
+         ======================================================================== -->
+    <div class="modal-backdrop" id="voiceModal">
+        <div class="modal-window">
+            <button class="modal-close-btn" id="closeVoiceModal">✕</button>
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+                <span style="font-size:26px;">🎙️</span>
+                <h3 style="color:var(--primary-dark); font-size:19px;">Voice Studio & ElevenLabs</h3>
+            </div>
+            <p style="font-size:12.5px; color:var(--text-muted); margin-bottom:16px;">
+                Listen to natural character voices powered by ElevenLabs, test previews, or adjust speech fallback!
+            </p>
+
+            <!-- ElevenLabs Authorized Voices Grid -->
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <div style="font-size:12px; font-weight:700; color:var(--text-main);">ElevenLabs Authorized Voices:</div>
+                <span style="font-size:10px; color:var(--success); font-weight:700;">✓ Legally Authorized</span>
+            </div>
+            <div class="voice-profiles-grid" id="elevenlabsVoiceList" style="display:grid; grid-template-columns:1fr; gap:8px; margin-bottom:12px; max-height:220px; overflow-y:auto; padding-right:4px;">
+                <!-- Populated dynamically via ElevenLabs allowlist -->
+            </div>
+
+            <div style="font-size:11px; color:var(--text-muted); background:var(--bg-page); border:1px dashed var(--border-sub); border-radius:12px; padding:10px; margin-bottom:14px; line-height:1.4;">
+                🛡️ <b>Voice Safety Standard:</b> Only original ElevenLabs Voice Design & licensed library voices are permitted. Celebrity scraping or unauthorized voice cloning is strictly disallowed.
+            </div>
+
+            <!-- Fine-Tuning Controls for Browser Fallback -->
+            <div style="background:var(--bg-page); border:1px solid var(--border-sub); border-radius:16px; padding:14px; margin-bottom:16px;">
+                <div style="font-size:12px; font-weight:700; color:var(--text-main); margin-bottom:8px;">Browser Speech Fallback Controls:</div>
+                <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:600; margin-bottom:4px;">
+                    <span>Voice Pitch (Tone):</span>
+                    <span id="voicePitchValue">1.25</span>
+                </div>
+                <input type="range" id="voicePitchSlider" min="0.6" max="2.0" step="0.05" value="1.25" class="ambient-slider" style="margin-bottom:12px;">
+
+                <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:600; margin-bottom:4px;">
+                    <span>Speaking Speed (Rate):</span>
+                    <span id="voiceRateValue">1.05</span>
+                </div>
+                <input type="range" id="voiceRateSlider" min="0.6" max="1.6" step="0.05" value="1.05" class="ambient-slider" style="margin-bottom:12px;">
+
+                <div style="font-size:12px; font-weight:600; margin-bottom:4px;">Device System Voice:</div>
+                <select id="systemVoiceSelect" class="setting-input" style="font-size:12px; margin-top:0;">
+                    <option value="">Default Browser Voice</option>
+                </select>
+            </div>
+
+            <!-- Auto-Speak Toggle Switch -->
+            <div class="setting-row" style="margin-bottom:16px;">
+                <div>
+                    <div class="setting-label">🔊 Auto-Speak AI Replies</div>
+                    <div class="setting-desc">Spoken aloud automatically whenever AI responds</div>
+                </div>
+                <input type="checkbox" id="autoSpeakToggle" style="width:20px; height:20px; accent-color:var(--primary);">
+            </div>
+
+            <div style="display:flex; gap:10px;">
+                <button class="btn-timer-secondary" id="testVoiceBtn" style="flex:1; font-size:13px; padding:10px;">🎵 Test Voice Preview</button>
+                <button class="btn-timer" onclick="document.getElementById('voiceModal').classList.remove('active')" style="flex:1; font-size:13px; padding:10px;">Save Voice 🎀</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================
+         SETTINGS & AI CONFIGURATION MODAL
+         ======================================================================== -->
+    <div class="modal-backdrop" id="settingsModal">
+        <div class="modal-window">
+            <button class="modal-close-btn" id="closeSettingsModal">✕</button>
+            <h3 style="color:var(--primary-dark); font-size:18px; margin-bottom:14px;">⚙️ AI Brain & System Settings</h3>
+
+            <!-- AI Intelligence Provider Selector -->
+            <div style="background:var(--bg-page); border:1.5px solid var(--border-sub); border-radius:14px; padding:14px; margin-bottom:16px;">
+                <div style="font-size:13px; font-weight:700; color:var(--primary-dark); margin-bottom:8px; display:flex; justify-content:space-between; align-items:center;">
+                    <span>🧠 AI Brain / Intelligence Engine</span>
+                    <span id="activeEngineTag" style="font-size:11px; padding:2px 8px; border-radius:10px; background:var(--primary-soft); color:var(--primary-dark); font-weight:700;">Active: Gemini</span>
+                </div>
+                
+                <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:12px;">
+                    <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer; background:var(--bg-card); padding:8px 12px; border-radius:10px; border:1px solid var(--border-sub);">
+                        <input type="radio" name="aiProviderChoice" value="gemini" id="providerGemini" checked style="accent-color:var(--primary);">
+                        <div style="flex:1;">
+                            <span style="font-weight:700; color:var(--text-main);">🌟 Google Gemini</span>
+                            <div style="font-size:11px; color:var(--text-muted);">gemini-1.5-flash — Ultra fast, intelligent, free tier available</div>
+                        </div>
+                    </label>
+                    <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer; background:var(--bg-card); padding:8px 12px; border-radius:10px; border:1px solid var(--border-sub);">
+                        <input type="radio" name="aiProviderChoice" value="openai" id="providerOpenAI" style="accent-color:var(--primary);">
+                        <div style="flex:1;">
+                            <span style="font-weight:700; color:var(--text-main);">🤖 OpenAI ChatGPT</span>
+                            <div style="font-size:11px; color:var(--text-muted);">gpt-4o-mini / gpt-4o — State-of-the-art conversational reasoning</div>
+                        </div>
+                    </label>
+                    <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer; background:var(--bg-card); padding:8px 12px; border-radius:10px; border:1px solid var(--border-sub);">
+                        <input type="radio" name="aiProviderChoice" value="smart_engine" id="providerOffline" style="accent-color:var(--primary);">
+                        <div style="flex:1;">
+                            <span style="font-weight:700; color:var(--text-main);">💡 Smart Offline Engine</span>
+                            <div style="font-size:11px; color:var(--text-muted);">Built-in math, science, code, facts & personality — No API key needed</div>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- API Key Configuration Section -->
+                <div id="apiKeySection" style="border-top:1px dashed var(--border-sub); padding-top:10px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                        <label id="apiKeyLabel" style="font-size:12px; font-weight:700; color:var(--primary-dark);">
+                            🔑 Gemini API Key:
+                        </label>
+                        <span id="keySourceBadge" style="font-size:10px; color:var(--text-muted);"></span>
+                    </div>
+                    <div style="display:flex; gap:6px; margin-bottom:6px;">
+                        <input type="password" id="userApiKeyInput" placeholder="Paste your API key here..." style="flex:1; padding:8px 12px; border-radius:10px; border:1px solid var(--border-sub); font-size:13px; background:var(--bg-card); color:var(--text-main); outline:none;">
+                        <button type="button" id="toggleApiKeyVisibility" class="btn-timer-secondary" style="padding:4px 10px; font-size:12px;" title="Show/Hide Key">👁️</button>
+                    </div>
+                    <div id="apiKeyHelpText" style="font-size:11px; color:var(--text-muted); margin-bottom:8px;">
+                        Get a free key in 1 click at <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener" style="color:var(--primary); font-weight:700; text-decoration:underline;">Google AI Studio</a>.
+                    </div>
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+                        <button type="button" id="testApiKeyBtn" class="btn-timer" style="font-size:12px; padding:6px 14px;">⚡ Test & Connect</button>
+                        <label style="font-size:11px; color:var(--text-muted); display:flex; align-items:center; gap:4px; cursor:pointer;">
+                            <input type="checkbox" id="saveToServerEnv" checked style="accent-color:var(--primary);">
+                            <span>Save to server .env</span>
+                        </label>
+                    </div>
+                    <div id="apiKeyStatus" style="font-size:11px; font-weight:600; margin-top:6px; min-height:16px;"></div>
+                </div>
+            </div>
+
+            <div class="setting-row">
+                <div>
+                    <div class="setting-label">🔊 Auto-Speak AI Replies</div>
+                    <div class="setting-desc">Read responses aloud automatically in character voice</div>
+                </div>
+                <input type="checkbox" id="ttsToggle" style="width:20px; height:20px; accent-color:var(--primary);">
+            </div>
+
+            <div class="setting-row">
+                <div>
+                    <div class="setting-label">🔇 Mute Audio Synthesizer</div>
+                    <div class="setting-desc">Mute all game sounds & procedural lo-fi ambient audio</div>
+                </div>
+                <input type="checkbox" id="muteSoundToggle" style="width:20px; height:20px; accent-color:var(--primary);">
+            </div>
+
+            <div style="display:flex; justify-content:space-between; margin-top:20px;">
+                <button class="btn-timer-secondary" id="resetDataBtn" style="color:#d9534f; border-color:#f5c6cb; font-size:12px;">Reset All Data 🗑️</button>
+                <button class="btn-timer" onclick="document.getElementById('settingsModal').classList.remove('active')" style="font-size:13px; padding:10px 22px;">Done 🎀</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Installation Modal (PWA / Phone App Guide) -->
+    <div class="modal-backdrop" id="installModal">
+        <div class="modal-window" style="text-align:center;">
+            <button class="modal-close-btn" id="closeInstallModal">✕</button>
+            <div style="font-size:52px; margin-bottom:8px;">📲🎀</div>
+            <h3 style="color:var(--primary-dark); font-size:20px; margin-bottom:8px;">Install Pookie AI on Your Phone!</h3>
+            <p style="font-size:13px; color:var(--text-muted); margin-bottom:18px;">
+                Use Pookie as a standalone app right from your home screen! Works 100% offline with zero browser bars! ♡
+            </p>
+
+            <div style="background:var(--bg-page); border:1.5px solid var(--border-sub); border-radius:18px; padding:16px; text-align:left; font-size:13px; line-height:1.6; margin-bottom:16px;">
+                <p style="font-weight:700; color:var(--primary-dark); margin-bottom:6px;">📱 For iPhone / iPad (Safari):</p>
+                <p>1. Tap the <b>Share</b> button (<b>⬆️</b>) at the bottom.</p>
+                <p>2. Scroll down and tap <b>"Add to Home Screen"</b> (<b>➕</b>).</p>
+                <p>3. Tap <b>"Add"</b> in the top right corner! 🎀</p>
+                <hr style="margin:12px 0; border:none; border-top:1px dashed var(--border-sub);">
+                <p style="font-weight:700; color:var(--primary-dark); margin-bottom:6px;">🤖 For Android (Chrome / Brave):</p>
+                <p>1. Tap the <b>three dots menu</b> (<b>⋮</b>) in the top-right.</p>
+                <p>2. Tap <b>"Install app"</b> or <b>"Add to Home screen"</b>.</p>
+                <p>3. Tap <b>"Install"</b> and Pookie will appear in your apps! 🌸</p>
+            </div>
+
+            <button class="btn-timer" id="dismissInstallModal" style="width:100%; font-size:14px; padding:12px;">Got it, Bestie! ♡</button>
+        </div>
+    </div>
+
+    <!-- QR Code Modal (Scan with Phone Camera) -->
+    <div class="modal-backdrop" id="qrModal">
+        <div class="modal-window" style="text-align:center;">
+            <button class="modal-close-btn" id="closeQrModal">✕</button>
+            <div style="font-size:42px; margin-bottom:6px;">📱🎀</div>
+            <h3 style="color:var(--primary-dark); font-size:20px; margin-bottom:6px;">Open Pookie AI on Your Phone!</h3>
+            <p style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px;">
+                Point your phone's camera at this QR code to open the app instantly:
+            </p>
+
+            <div style="background:white; border:2px solid var(--border-main); border-radius:20px; padding:14px; display:inline-block; box-shadow:0 8px 24px var(--shadow-color); margin-bottom:14px;">
+                <img id="qrCodeImg" src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&color=d65389&bgcolor=ffffff&data=https%3A%2F%2Fhigher-madonna-wholesale-identifies.trycloudflare.com" alt="Pookie AI Phone QR Code" style="width:200px; height:200px; display:block; border-radius:10px;">
+            </div>
+
+            <p style="font-size:12px; font-weight:600; color:var(--text-main); margin-bottom:14px; word-break:break-all;">
+                🔗 Link: <a href="https://higher-madonna-wholesale-identifies.trycloudflare.com" target="_blank" style="color:var(--primary-dark);">higher-madonna-wholesale-identifies.trycloudflare.com</a>
+            </p>
+
+            <div style="display:flex; gap:10px;">
+                <a href="https://api.whatsapp.com/send?text=Chat%20with%20Pookie%20AI%20%F0%9F%8E%80%20-%20Your%20tiny%20digital%20bestie%20%E2%99%A1%3A%20https%3A%2F%2Fhigher-madonna-wholesale-identifies.trycloudflare.com" target="_blank" class="btn-timer" style="flex:1; font-size:13px; padding:10px; background:#25D366; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:6px;">
+                    💬 WhatsApp
+                </a>
+                <button class="btn-timer-secondary" onclick="navigator.clipboard.writeText('https://higher-madonna-wholesale-identifies.trycloudflare.com'); pookieApp.showToast('Link copied! 📋')" style="flex:1; font-size:13px; padding:10px;">
+                    📋 Copy Link
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================
+         PHONE CALL MODE MODAL (Full-Screen Immersive Smartphone UI)
+         ======================================================================== -->
+    <div class="call-modal-backdrop" id="callModal">
+        <div class="call-screen">
+            <!-- Top Call Header -->
+            <div class="call-top-bar">
+                <span class="call-encryption-badge">🔒 Live AI Phone Call</span>
+                <span class="call-duration" id="callDuration">00:00</span>
+            </div>
+
+            <!-- Central Caller Avatar & Pulsing Glow -->
+            <div class="call-avatar-container">
+                <div class="call-pulse-ring call-pulse-1"></div>
+                <div class="call-pulse-ring call-pulse-2"></div>
+                <div class="call-avatar" id="callAvatar">🐰</div>
+            </div>
+
+            <div class="call-caller-name" id="callCallerName">Pookie Bestie</div>
+            <div class="call-status" id="callStatus">Calling...</div>
+
+            <!-- Live Speech Bubble / Captions on Call -->
+            <div class="call-caption-box" id="callCaptionBox">
+                <div class="call-caption-text" id="callCaptionText">
+                    "Ring ring... Connecting voice satellite... ♡"
+                </div>
+            </div>
+
+            <!-- Quick Phrase Chips for Call -->
+            <div class="call-quick-chips">
+                <button class="call-chip" onclick="pookieApp.speakInCall('How are you doing today?')">💬 How are you?</button>
+                <button class="call-chip" onclick="pookieApp.speakInCall('Tell me a cute joke!')">😂 Tell me a joke</button>
+                <button class="call-chip" onclick="pookieApp.speakInCall('Give me some good advice!')">💡 Give me advice</button>
+                <button class="call-chip" onclick="pookieApp.speakInCall('I needed to hear your voice!')">🥺 Missed you</button>
+            </div>
+
+            <!-- Call Control Buttons -->
+            <div class="call-controls">
+                <button class="call-ctrl-btn" id="callMuteBtn" title="Toggle Mute Mic">
+                    <span class="call-ctrl-icon" id="callMuteIcon">🎙️</span>
+                    <span class="call-ctrl-label" id="callMuteLabel">Mic On</span>
+                </button>
+                <button class="call-ctrl-btn call-btn-end" id="endCallBtn" title="End Call">
+                    <span class="call-ctrl-icon">📞</span>
+                    <span class="call-ctrl-label">End Call</span>
+                </button>
+                <button class="call-ctrl-btn" id="callSpeakerBtn" title="Speaker Mode">
+                    <span class="call-ctrl-icon" id="callSpeakerIcon">🔊</span>
+                    <span class="call-ctrl-label" id="callSpeakerLabel">Speaker</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Mobile Bottom Navigation Bar (Visible only on mobile/phone screens) -->
+    <nav class="mobile-bottom-nav" id="mobileBottomNav">
+        <button class="mobile-nav-btn active" data-view="view-chat">
+            <span class="mobile-nav-icon">💬</span>
+            <span class="mobile-nav-text">Chat</span>
+        </button>
+        <button class="mobile-nav-btn" data-view="view-games">
+            <span class="mobile-nav-icon">🎮</span>
+            <span class="mobile-nav-text">Games</span>
+        </button>
+        <button class="mobile-nav-btn" data-view="view-vibe">
+            <span class="mobile-nav-icon">🎀</span>
+            <span class="mobile-nav-text">Vibe</span>
+        </button>
+        <button class="mobile-nav-btn" data-view="view-challenges">
+            <span class="mobile-nav-icon">⭐</span>
+            <span class="mobile-nav-text">Quests</span>
+        </button>
+        <button class="mobile-nav-btn" data-view="view-study">
+            <span class="mobile-nav-icon">📚</span>
+            <span class="mobile-nav-text">Study</span>
+        </button>
+        <button class="mobile-nav-btn" data-view="view-notes">
+            <span class="mobile-nav-icon">💌</span>
+            <span class="mobile-nav-text">Diary</span>
+        </button>
+    </nav>
+
+    <!-- Scripts -->
+    <script src="js/ai-engine.js"></script>
+    <script src="js/voice-manager.js"></script>
+    <script src="js/games.js"></script>
+    <script src="js/study.js"></script>
+    <script src="js/notes.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="pookieGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd0e3"/>
+      <stop offset="50%" stop-color="#ffb5d1"/>
+      <stop offset="100%" stop-color="#ee82ad"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#df638f" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background App Icon Shape (iOS Squircle) -->
+  <rect width="512" height="512" rx="128" fill="url(#pookieGrad)"/>
+  
+  <!-- Inner Glow Ring -->
+  <rect x="20" y="20" width="472" height="472" rx="112" fill="none" stroke="#ffffff" stroke-width="8" stroke-opacity="0.6"/>
+
+  <!-- Bunny Mascot -->
+  <g filter="url(#shadow)">
+    <!-- Bunny Head -->
+    <ellipse cx="256" cy="310" rx="120" ry="110" fill="#ffffff"/>
+    
+    <!-- Bunny Ears -->
+    <ellipse cx="195" cy="180" rx="35" ry="90" fill="#ffffff" transform="rotate(-10 195 180)"/>
+    <ellipse cx="195" cy="180" rx="20" ry="65" fill="#ffd0e3" transform="rotate(-10 195 180)"/>
+    
+    <ellipse cx="317" cy="180" rx="35" ry="90" fill="#ffffff" transform="rotate(10 317 180)"/>
+    <ellipse cx="317" cy="180" rx="20" ry="65" fill="#ffd0e3" transform="rotate(10 317 180)"/>
+
+    <!-- Eyes (Cute Blinking / Sparkly Eyes) -->
+    <ellipse cx="205" cy="300" rx="10" ry="12" fill="#4a3b43"/>
+    <circle cx="202" cy="296" r="3.5" fill="#ffffff"/>
+    
+    <ellipse cx="307" cy="300" rx="10" ry="12" fill="#4a3b43"/>
+    <circle cx="304" cy="296" r="3.5" fill="#ffffff"/>
+
+    <!-- Cute Blush -->
+    <ellipse cx="175" cy="325" rx="16" ry="9" fill="#ff9fc5" opacity="0.7"/>
+    <ellipse cx="337" cy="325" rx="16" ry="9" fill="#ff9fc5" opacity="0.7"/>
+
+    <!-- Nose & Mouth -->
+    <polygon points="256,318 250,312 262,312" fill="#ee82ad"/>
+    <path d="M 250 322 Q 256 328 262 322" fill="none" stroke="#4a3b43" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Cute Pink Ribbon Bow on Ear -->
+    <g transform="translate(195, 230)">
+      <path d="M 0 0 C -25 -20 -35 15 -10 5 Z" fill="#ee82ad"/>
+      <path d="M 0 0 C 25 -20 35 15 10 5 Z" fill="#ee82ad"/>
+      <circle cx="0" cy="0" r="7" fill="#ffffff"/>
+      <circle cx="0" cy="0" r="5" fill="#df638f"/>
+    </g>
+  </g>
+
+  <!-- Sparkles -->
+  <path d="M 400 120 Q 400 140 420 140 Q 400 140 400 160 Q 400 140 380 140 Q 400 140 400 120 Z" fill="#ffffff"/>
+  <path d="M 110 390 Q 110 405 125 405 Q 110 405 110 420 Q 110 405 95 405 Q 110 405 110 390 Z" fill="#ffffff" opacity="0.8"/>
+</svg>
