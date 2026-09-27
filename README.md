@@ -1,6 +1,10 @@
 # Pookie AI 🎀 - Full-Stack AI Character & Gaming Sanctuary ♡
 
-> A delightful, production-grade AI companion experience integrated into an aesthetic game world featuring dynamic multi-character conversations (powered by OpenAI ChatGPT), natural speech synthesis (powered by ElevenLabs), arcade mini-games, daily vibe checks, Pomodoro study sanctuary, customizable pastel themes, secret diary notes, and full XP gamification!
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Tayeb270/pookie)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Tayeb270/pookie)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/Tayeb270/pookie)
+
+> A delightful, production-grade AI companion experience integrated into an aesthetic game world featuring dynamic multi-character conversations (powered by Google Gemini & OpenAI ChatGPT), natural speech synthesis, phone call mode, arcade mini-games, daily vibe checks, Pomodoro study sanctuary, customizable pastel themes, secret diary notes, and full XP gamification!
 
 ---
 
